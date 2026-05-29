@@ -1,0 +1,13 @@
+yfinance
+pandas
+numpy
+matplotlib
+scikit-learn
+neuralforecast
+statsmodels
+stable-baselines3
+gymnasium
+joblib
+uvcorn
+fastapi
+xlrd
