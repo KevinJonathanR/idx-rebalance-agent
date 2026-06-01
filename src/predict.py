@@ -54,6 +54,12 @@ def generate_all_predictions(df: pd.DataFrame, model_save_dir: str, horizon: int
         print(f"\n-- Memproses {sector}... --")
 
         try:
+            if os.path.exists(model_path):
+                for f in os.listdir(model_path):
+                    fp = os.path.join(model_path, f)
+                    print(f"  [debug] {f}: {os.path.getsize(fp)} bytes")
+            else:
+                print(f"  [debug] PATH NOT FOUND: {model_path}")
             nf_loaded = NeuralForecast.load(path=model_path)
             historical_df = df[df['Sector'] == sector].copy()
 
