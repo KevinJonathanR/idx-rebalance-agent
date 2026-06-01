@@ -5,7 +5,29 @@ from fastapi.staticfiles import StaticFiles
 from src.predict import generate_all_predictions, process_and_predict_drl
 from src.get_data import get_sector_and_article_data
 import threading
+import os
+import urllib.request
 
+_HF_SPACE = "KevinJonathanR/idx-smart-rebalance"
+_LFS_FILES = [
+    "saved_models/DRL_Model/SAC_Portfolio.zip",
+    "saved_models/DRL_Model/standard_scaler.pkl",
+]
+
+def _resolve_lfs():
+    for path in _LFS_FILES:
+        if not os.path.exists(path):
+            continue
+        with open(path, "rb") as f:
+            if not f.read(50).startswith(b"version https://git-lfs"):
+                continue
+        url = f"https://huggingface.co/spaces/{_HF_SPACE}/resolve/main/{path}"
+        print(f"[startup] Downloading LFS file: {path}")
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        urllib.request.urlretrieve(url, path)
+        print(f"[startup] Done: {path}")
+
+_resolve_lfs()
 
 app = FastAPI()
 
