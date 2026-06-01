@@ -24,8 +24,11 @@ def _ensure_drl_models():
             url = f"https://huggingface.co/{_HF_MODEL_REPO}/resolve/main/{filename}"
             print(f"[startup] Downloading model: {local_path}")
             os.makedirs(os.path.dirname(local_path), exist_ok=True)
-            urllib.request.urlretrieve(url, local_path)
-            print(f"[startup] Done: {local_path}")
+            try:
+                urllib.request.urlretrieve(url, local_path)
+                print(f"[startup] Done: {local_path}")
+            except Exception as e:
+                print(f"[startup] WARNING: Could not download {filename}: {e}")
 
 _ensure_drl_models()
 
