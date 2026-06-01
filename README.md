@@ -23,7 +23,7 @@ pinned: false
 
 > Input your portfolio amount (IDR) → get sector allocation recommendations optimized for the **next 7 days**, factoring in live IDX market data and **current geopolitical risk conditions** (GPR Index).
 >
-> *First run fetches live data and runs inference — allow ~1 minutes.*
+> *First run fetches live data and runs inference — allow ~30 seconds.*
 
 ---
 
