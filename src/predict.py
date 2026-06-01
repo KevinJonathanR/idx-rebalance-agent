@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import os
 from neuralforecast.core import NeuralForecast
-from IPython.display import display
 import logging
 from src.get_data import get_sector_and_article_data
 
