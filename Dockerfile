@@ -5,6 +5,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     build-essential \
     git \
+    git-lfs \
     && rm -rf /var/lib/apt/lists/*
 
 # Install CPU-only PyTorch first to keep image size minimal
@@ -14,6 +15,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+
+# Resolve Git LFS pointer files → download actual binary model files
+RUN git lfs install && git lfs pull
 
 EXPOSE 7860
 
