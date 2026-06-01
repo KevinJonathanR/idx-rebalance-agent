@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from src.predict import generate_all_predictions, process_and_predict_drl
 from src.get_data import get_sector_and_article_data
 import threading
-import time
 
 
 app = FastAPI()
@@ -75,3 +75,7 @@ def predict_api():
 def predict_status():
     global process_status
     return JSONResponse({"status": process_status["status"], "result": process_status["result"]})
+
+
+# Serve frontend static files — must be mounted AFTER all API routes
+app.mount("/", StaticFiles(directory="web", html=True), name="static")

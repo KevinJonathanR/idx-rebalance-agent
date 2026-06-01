@@ -108,11 +108,11 @@ document.addEventListener('DOMContentLoaded', function() {
             setLoading(true, 'Memulai prediksi...');
             simulasiChart.innerHTML = '';
             
-            fetch('http://127.0.0.1:8000/predict')
+            fetch('/predict')
                 .then(res => res.json())
                 .then(data => {
                     let poll = setInterval(() => {
-                        fetch('http://127.0.0.1:8000/predict/status')
+                        fetch('/predict/status')
                             .then(res => res.json())
                             .then(statusData => {
                                 setLoading(true, statusData.status);
