@@ -36,7 +36,14 @@ Given a portfolio amount in IDR, the system outputs how much to allocate across 
 2. **Portfolio Optimization** — A pre-trained **Soft Actor-Critic (SAC)** reinforcement learning agent takes predicted volatilities as input and outputs optimal capital allocation weights across all 11 sectors
 3. **Interactive Dashboard** — Plotly.js charts show per-sector volatility forecasts, a portfolio pie chart, and IDR breakdown per sector
 
-**Tech Stack:** FastAPI · NeuralForecast (TFT/LSTM/N-HiTS/N-BEATS-X) · Stable-Baselines3 (SAC) · yfinance · Plotly.js
+| Layer | Technology |
+|---|---|
+| Backend API | FastAPI, Uvicorn |
+| Forecasting | NeuralForecast (TFT, LSTM, N-HiTS, N-BEATS-X) |
+| Portfolio Optimization | Stable-Baselines3 (SAC), Gymnasium |
+| Data | yfinance, GPR Index (Matteo Iacoviello) |
+| Frontend | Vanilla JS, Plotly.js, Lottie |
+| Deployment | Hugging Face Spaces (Docker) |
 
 ---
 
