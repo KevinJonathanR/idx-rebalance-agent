@@ -1,3 +1,12 @@
+---
+title: IDX Smart Rebalance
+emoji: 📈
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
 # IDX Smart Rebalance — AI-Powered Sectoral Portfolio Optimization
 
 > **Datathon Ristek Fasilkom UI 2025** · Tim Gacor · Telkom University
