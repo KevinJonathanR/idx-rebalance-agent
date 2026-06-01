@@ -8,26 +8,26 @@ import threading
 import os
 import urllib.request
 
-_HF_SPACE = "KevinJonathanR/idx-smart-rebalance"
-_LFS_FILES = [
-    "saved_models/DRL_Model/SAC_Portfolio.zip",
-    "saved_models/DRL_Model/standard_scaler.pkl",
-]
+_HF_MODEL_REPO = "KevinJonathanR/idx-smart-rebalance-models"
+_DRL_FILES = {
+    "saved_models/DRL_Model/SAC_Portfolio.zip": "SAC_Portfolio.zip",
+    "saved_models/DRL_Model/standard_scaler.pkl": "standard_scaler.pkl",
+}
 
-def _resolve_lfs():
-    for path in _LFS_FILES:
-        if not os.path.exists(path):
-            continue
-        with open(path, "rb") as f:
-            if not f.read(50).startswith(b"version https://git-lfs"):
-                continue
-        url = f"https://huggingface.co/spaces/{_HF_SPACE}/resolve/main/{path}"
-        print(f"[startup] Downloading LFS file: {path}")
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        urllib.request.urlretrieve(url, path)
-        print(f"[startup] Done: {path}")
+def _ensure_drl_models():
+    for local_path, filename in _DRL_FILES.items():
+        needs_download = not os.path.exists(local_path)
+        if not needs_download:
+            with open(local_path, "rb") as f:
+                needs_download = f.read(50).startswith(b"version https://git-lfs")
+        if needs_download:
+            url = f"https://huggingface.co/{_HF_MODEL_REPO}/resolve/main/{filename}"
+            print(f"[startup] Downloading model: {local_path}")
+            os.makedirs(os.path.dirname(local_path), exist_ok=True)
+            urllib.request.urlretrieve(url, local_path)
+            print(f"[startup] Done: {local_path}")
 
-_resolve_lfs()
+_ensure_drl_models()
 
 app = FastAPI()
 
