@@ -16,8 +16,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Resolve Git LFS pointer files → download actual binary model files
-RUN git lfs install && git lfs pull
+# Download all model files from HF Model repo at build time
+RUN huggingface-cli download KevinJonathanR/idx-smart-rebalance-models \
+    --repo-type model --local-dir saved_models
 
 EXPOSE 7860
 
