@@ -23,7 +23,7 @@ pinned: false
 
 > Input your portfolio amount (IDR) → get sector allocation recommendations optimized for the **next 7 days**, factoring in live IDX market data and **current geopolitical risk conditions** (GPR Index).
 >
-> *First run fetches live data and runs inference — allow ~2–3 minutes.*
+> *First run fetches live data and runs inference — allow ~1 minutes.*
 
 ---
 
@@ -80,3 +80,8 @@ uvicorn api_backend:app --reload --host 0.0.0.0 --port 8000
 ---
 
 *Built for Datathon Ristek Fasilkom UI 2025 by Tim Gacor — Telkom University*
+
+Team Member:
+1. Faaris Khairrudin - Team Lead [@FaarisKhairrudin](https://github.com/FaarisKhairrudin)
+2. Kevin Jonathan - Team Member [@KevinJonathanR](https://github.com/KevinJonathanR)
+3. Arkhan Falih Fahrie - Team Member [@Llihc](https://github.com/Llihc)
