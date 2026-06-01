@@ -9,7 +9,7 @@ pinned: false
 
 # IDX Smart Rebalance — AI-Powered Sectoral Portfolio Optimizer
 
-> **Datathon Ristek Fasilkom UI 2025** · Tim Gacor · Telkom University
+> **Datathon Ristek Fasilkom UI 2025** · 🏆 Top 7 Finalist · Tim Gacor · Telkom University
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green?logo=fastapi)](https://fastapi.tiangolo.com)
