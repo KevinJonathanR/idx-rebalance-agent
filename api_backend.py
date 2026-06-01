@@ -31,7 +31,7 @@ def run_prediction_pipeline(model_save_dir, horizon):
         # Jalankan DRL recommendation
         recommendations = process_and_predict_drl(
             final_data, final_predictions_df,
-            model_path="saved_models/DRL_Model/SAC_Portfolio.zip",
+            model_path="saved_models/DRL_Model/SAC_Portfolio",
             scaler_path="saved_models/DRL_Model/standard_scaler.pkl"
         )
         # Konversi kolom datetime dan Timestamp ke string agar bisa di-serialize ke JSON
