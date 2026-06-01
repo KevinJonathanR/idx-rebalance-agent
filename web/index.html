@@ -18,7 +18,7 @@
         </div>
         <div class="hero-content">
             <h1>AI-Powered Sectoral Portfolio Recommendation</h1>
-            <p>Menghadapi Volatilitas Pasar Akibat Krisis Global dengan Prediksi Cerdas</p>
+            <p>Masukkan dana kamu → dapatkan rekomendasi alokasi portofolio untuk <strong>7 hari ke depan</strong>, berdasarkan prediksi volatilitas 11 sektor IDX yang mempertimbangkan <strong>kondisi risiko geopolitik global saat ini</strong>.</p>
             <button id="heroPredictBtn" class="cta-btn">Mulai Prediksi</button>
         </div>
     </header>
@@ -64,14 +64,14 @@
                         <lottie-player src="forecasting.json" background="transparent" speed="1" style="width: 200px; height: 200px; margin-bottom:8px;" loop autoplay></lottie-player>
                         <h3 style="margin:0;text-align:center;">1. Prediksi Volatilitas dengan Deep Learning</h3>
                     </div>
-                    <p style="text-align:center;">Model AI (LSTM, TFT, N-HiTS, N-BEATS) mempelajari pola perubahan sektor dan risiko geopolitik untuk memprediksi volatilitas sektor.</p>
+                    <p style="text-align:center;">11 model deep learning sektor-spesifik (LSTM, TFT, N-HiTS, N-BEATS-X) memprediksi volatilitas <strong>7 hari ke depan</strong> untuk setiap sektor IDX, menggunakan data pasar harian dan indeks risiko geopolitik (GPR).</p>
                 </div>
                 <div class="system-step">
                     <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
                         <lottie-player src="DRL_animation.json" background="transparent" speed="1" style="width: 200px; height: 200px; margin-bottom:8px;" loop autoplay></lottie-player>
                         <h3 style="margin:0;text-align:center;">2. Pengambilan Keputusan dengan DRL</h3>
                     </div>
-                    <p style="text-align:center;">Agent DRL menyusun strategi alokasi portofolio secara adaptif berdasarkan hasil prediksi dan simulasi pasar.</p>
+                    <p style="text-align:center;">Agent SAC (Soft Actor-Critic) mengambil prediksi volatilitas 7 hari ke depan sebagai input, lalu menghasilkan bobot alokasi optimal untuk 11 sektor — meminimalkan risiko sesuai kondisi pasar terkini.</p>
                 </div>
             </div>
         </section>
@@ -97,7 +97,8 @@
                 </div>
             </div>
             
-            <h2>💰 Rekomendasi Portofolio</h2>
+            <h2>💰 Rekomendasi Portofolio 7 Hari ke Depan</h2>
+            <p style="text-align:center;color:#888;margin-top:-8px;margin-bottom:16px;">Masukkan dana investasi kamu. Sistem menganalisis data pasar harian dan <strong>kondisi risiko geopolitik global terkini</strong> (GPR Index) untuk merekomendasikan alokasi per sektor IDX yang optimal dalam 7 hari ke depan.</p>
             <div class="main-flex-container" id="nominalFlexContainer">
                 <div class="flex-left">
                     <form class="money-form" id="moneyForm">
