@@ -1,4 +1,4 @@
-"""Download model files directly from HF HTTP API, bypassing LFS pointer issues."""
+"""Download model files directly from HF HTTP API, bypassing LFS pointer issues. v2"""
 import os
 import requests
 
