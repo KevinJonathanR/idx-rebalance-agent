@@ -5,32 +5,6 @@ from fastapi.staticfiles import StaticFiles
 from src.predict import generate_all_predictions, process_and_predict_drl
 from src.get_data import get_sector_and_article_data
 import threading
-import os
-import urllib.request
-
-_HF_MODEL_REPO = "KevinJonathanR/idx-smart-rebalance-models"
-_DRL_FILES = {
-    "saved_models/DRL_Model/SAC_Portfolio.zip": "SAC_Portfolio.zip",
-    "saved_models/DRL_Model/standard_scaler.pkl": "standard_scaler.pkl",
-}
-
-def _ensure_drl_models():
-    for local_path, filename in _DRL_FILES.items():
-        needs_download = not os.path.exists(local_path)
-        if not needs_download:
-            with open(local_path, "rb") as f:
-                needs_download = f.read(50).startswith(b"version https://git-lfs")
-        if needs_download:
-            url = f"https://huggingface.co/{_HF_MODEL_REPO}/resolve/main/{filename}"
-            print(f"[startup] Downloading model: {local_path}")
-            os.makedirs(os.path.dirname(local_path), exist_ok=True)
-            try:
-                urllib.request.urlretrieve(url, local_path)
-                print(f"[startup] Done: {local_path}")
-            except Exception as e:
-                print(f"[startup] WARNING: Could not download {filename}: {e}")
-
-_ensure_drl_models()
 
 app = FastAPI()
 

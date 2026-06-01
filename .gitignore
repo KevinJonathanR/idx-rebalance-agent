@@ -21,7 +21,7 @@ outputs/
 notebook/**
 !notebook/.gitkeep
 
-saved_models/
+# saved_models tracked via Git LFS — do not ignore
 
 # Secrets
 .env
