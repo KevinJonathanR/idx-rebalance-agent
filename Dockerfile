@@ -16,9 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Download all model files from HF Model repo at build time
-RUN pip install --no-cache-dir huggingface_hub && \
-    python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='KevinJonathanR/idx-smart-rebalance-models', repo_type='model', local_dir='saved_models', local_dir_use_symlinks=False)"
+# Download all model files directly from HF HTTP API
+RUN pip install --no-cache-dir requests && python download_models.py
 
 EXPOSE 7860
 
